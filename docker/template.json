@@ -1,0 +1,19 @@
+{
+  "builders": [
+    {
+      "type" : "docker",
+      "image" : "ubuntu",
+      "export_path" : "latest.tar"
+    }
+  ],
+  "post-processors": [
+    [
+      {
+        "type" : "docker-import",
+        "repository" : "<insert your>/<repo here>",
+        "tag" : "latest"
+      },
+      "docker-push"
+    ]
+  ]
+}
